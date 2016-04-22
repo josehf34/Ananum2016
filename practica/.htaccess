@@ -1,0 +1,15 @@
+Options -MultiViews
+RewriteEngine On
+
+
+#NEVER REWRITE FILES OR DIRECTORIES
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+
+############
+
+
+RewriteRule ^(\w+)/?$ index.php?module=$1 [L,QSA]
+RewriteRule ^(\w+)/(\w+)/?$ index.php?module=$1&&action=?$2 [L,QSA]
